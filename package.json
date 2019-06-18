@@ -1,0 +1,23 @@
+{
+  "name": "react-native-redux-form-components",
+  "version": "0.0.1",
+  "description": "React Native form components compatible with redux-form",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nnanyielugo/react-native-redux-form-components.git"
+  },
+  "keywords": [
+    "react-native",
+    "redux-form"
+  ],
+  "author": "Nnanyielugo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nnanyielugo/react-native-redux-form-components/issues"
+  },
+  "homepage": "https://github.com/Nnanyielugo/react-native-redux-form-components#readme"
+}
