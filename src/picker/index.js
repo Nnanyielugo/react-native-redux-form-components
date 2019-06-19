@@ -14,7 +14,7 @@ import {
   updateList, getSelectedFromName, uncheckonUnmount, updateListOnMount,
 } from './helpers';
 import styles from './styles';
-import Modal from '~/src/components/modal';
+import Modal from '../modal';
 
 class Picker extends Component {
   static propTypes = {
