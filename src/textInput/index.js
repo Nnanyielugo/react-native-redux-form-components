@@ -4,7 +4,7 @@ import { Animated } from 'react-native';
 
 import Plain from './plain';
 import FloatingLabel from './floatinglabel';
-import ErrorContainer from '../errorContainer';
+import ErrorContainer from './errorContainer';
 import styles from './defaultStyles';
 
 export default class TextInputComp extends Component {
