@@ -10,7 +10,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-class LoadMatchDetails extends Component {
+class CustomModal extends Component {
   static propTypes = {
     children: PropTypes.node,
     closeModal: PropTypes.func.isRequired,
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     paddingVertical: 10,
   },
   modal: {
-    flex: 1,
+    flexGrow: 1,
     alignItems: 'center',
     backgroundColor: 'rgba(0, 0, 0, 0.5)',
   },
@@ -132,4 +132,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default LoadMatchDetails;
+export default CustomModal;

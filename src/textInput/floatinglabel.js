@@ -24,6 +24,7 @@ const floatinglabel = (props) => {
     handleBlur,
     defaultStyle,
     useDefaultStyle,
+    placeholderItalics,
   } = props;
   return (
     <View style={styles.container}>
@@ -31,6 +32,7 @@ const floatinglabel = (props) => {
       <TextInput
         style={[
           useDefaultStyle && defaultStyle,
+          placeholderItalics && { fontStyle: 'italic' },
           { marginTop: Platform.OS === 'ios' ? -2 : -14 },
           (meta && invalid && touched) || (meta && touched && error)
             ? styles.inputErrorStyle
@@ -71,6 +73,7 @@ floatinglabel.propTypes = {
   handleBlur: PropTypes.func,
   defaultStyle: PropTypes.object,
   useDefaultStyle: PropTypes.bool,
+  placeholderItalics: PropTypes.bool,
 };
 
 export default floatinglabel;
