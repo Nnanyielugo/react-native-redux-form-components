@@ -15,13 +15,11 @@ const plain = (props) => {
     },
     useDefaultStyle,
     defaultStyle,
-    placeholderItalics,
   } = props;
   return (
     <TextInput
       style={[
         useDefaultStyle && defaultStyle,
-        placeholderItalics && { fontStyle: 'italic' },
         { marginTop: Platform.OS === 'ios' ? 10 : 5 },
         (meta && invalid && touched) || (meta && touched && error)
           ? styles.inputErrorStyle
@@ -55,7 +53,6 @@ plain.propTypes = {
   placeholder: PropTypes.string,
   defaultStyle: PropTypes.object,
   useDefaultStyle: PropTypes.bool,
-  placeholderItalics: PropTypes.bool,
 };
 
 export default plain;
