@@ -5,6 +5,7 @@ INJECTED from /Users/nnanyielugo/Documents/Projects/react-native-redux-form-comp
 INJECTED from /Users/nnanyielugo/Documents/Projects/react-native-redux-form-components/example/android/app/src/main/AndroidManifest.xml:1:1-26:12
 INJECTED from /Users/nnanyielugo/Documents/Projects/react-native-redux-form-components/example/android/app/src/main/AndroidManifest.xml:1:1-26:12
 MERGED from /Users/nnanyielugo/Documents/Projects/react-native-redux-form-components/example/android/app/src/main/AndroidManifest.xml:1:1-26:12
+MERGED from [:react-native-vector-icons] /Users/nnanyielugo/Documents/Projects/react-native-redux-form-components/example/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-11:12
 MERGED from [com.facebook.react:react-native:0.59.9] /Users/nnanyielugo/.gradle/caches/transforms-2/files-2.1/892d66e7005ecb2c525416e3b27adff1/AndroidManifest.xml:2:1-13:12
 MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/nnanyielugo/.gradle/caches/transforms-2/files-2.1/d0b82ca90289ab6d178ee711bae970f5/AndroidManifest.xml:17:1-22:12
 MERGED from [com.android.support:support-fragment:28.0.0] /Users/nnanyielugo/.gradle/caches/transforms-2/files-2.1/ea5e41006957ad0e5bfbd7842e0955c1/AndroidManifest.xml:17:1-22:12
@@ -129,6 +130,8 @@ uses-sdk
 INJECTED from /Users/nnanyielugo/Documents/Projects/react-native-redux-form-components/example/android/app/src/main/AndroidManifest.xml reason: use-sdk injection requested
 INJECTED from /Users/nnanyielugo/Documents/Projects/react-native-redux-form-components/example/android/app/src/main/AndroidManifest.xml
 INJECTED from /Users/nnanyielugo/Documents/Projects/react-native-redux-form-components/example/android/app/src/main/AndroidManifest.xml
+MERGED from [:react-native-vector-icons] /Users/nnanyielugo/Documents/Projects/react-native-redux-form-components/example/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
+MERGED from [:react-native-vector-icons] /Users/nnanyielugo/Documents/Projects/react-native-redux-form-components/example/node_modules/react-native-vector-icons/android/build/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.59.9] /Users/nnanyielugo/.gradle/caches/transforms-2/files-2.1/892d66e7005ecb2c525416e3b27adff1/AndroidManifest.xml:7:5-9:41
 MERGED from [com.facebook.react:react-native:0.59.9] /Users/nnanyielugo/.gradle/caches/transforms-2/files-2.1/892d66e7005ecb2c525416e3b27adff1/AndroidManifest.xml:7:5-9:41
 MERGED from [com.android.support:appcompat-v7:28.0.0] /Users/nnanyielugo/.gradle/caches/transforms-2/files-2.1/d0b82ca90289ab6d178ee711bae970f5/AndroidManifest.xml:20:5-44

@@ -14,12 +14,11 @@ const plain = (props) => {
       touched, invalid, error, active,
     },
     useDefaultStyle,
-    defaultStyle,
   } = props;
   return (
     <TextInput
       style={[
-        useDefaultStyle && defaultStyle,
+        useDefaultStyle && styles.input,
         { marginTop: Platform.OS === 'ios' ? 10 : 5 },
         (meta && invalid && touched) || (meta && touched && error)
           ? styles.inputErrorStyle

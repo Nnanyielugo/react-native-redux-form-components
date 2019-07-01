@@ -1,9 +1,10 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import { Animated } from 'react-native';
+import {
+  View, Animated, TextInput, Platform,
+} from 'react-native';
 
 import Plain from './plain';
-import FloatingLabel from './floatinglabel';
 import ErrorContainer from './errorContainer';
 import styles from './defaultStyles';
 
@@ -69,7 +70,14 @@ export default class TextInputComp extends Component {
 
   render() {
     const {
-      input, meta, useFloatingLabel, placeholder, standInPlaceHolder, inlineError, ...props
+      input, meta, useFloatingLabel, placeholder, standInPlaceHolder, inlineError,
+      input: {
+        value, onChange,
+      },
+      meta: {
+        touched, invalid, error, active,
+      },
+      defaultStyle, useDefaultStyle, ...props
     } = this.props;
     const labelStyle = {
       position: 'absolute',
@@ -88,6 +96,7 @@ export default class TextInputComp extends Component {
         outputRange: ['#aaa', '#000'],
       }),
     };
+
     return (
       <Fragment>
         {!useFloatingLabel && (
@@ -100,16 +109,29 @@ export default class TextInputComp extends Component {
         )}
 
         {useFloatingLabel && (
-          <FloatingLabel
-            input={input}
-            meta={meta}
-            placeholder={placeholder}
-            labelStyle={labelStyle}
-            isFocused={this.state.isFocused}
-            handleFocus={this.handleFocus}
-            handleBlur={this.handleBlur}
-            {...props}
-          />
+          <View style={styles.container}>
+            <Animated.Text style={labelStyle}>{placeholder}</Animated.Text>
+            <TextInput
+              style={[
+                useDefaultStyle && styles.input,
+                { marginTop: Platform.OS === 'ios' ? -2 : -14 },
+                (meta && invalid && touched) || (meta && touched && error)
+                  ? styles.inputErrorStyle
+                  : null,
+                meta && active
+                  ? styles.activeInputStyle
+                  : null,
+
+              ]}
+              {...props}
+              placeholder={this.state.isFocused && standInPlaceHolder ? standInPlaceHolder : ''}
+              underlineColorAndroid="transparent"
+              onFocus={this.handleFocus}
+              onBlur={this.handleBlur}
+              value={input && value && value.toString()}
+              onChangeText={input && onChange}
+            />
+          </View>
         )}
         {inlineError && (meta && meta.submitFailed && meta.error) && (
           <ErrorContainer
