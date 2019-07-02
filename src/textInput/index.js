@@ -4,9 +4,8 @@ import {
   View, Animated, TextInput, Platform,
 } from 'react-native';
 
-import Plain from './plain';
-import ErrorContainer from './errorContainer';
-import styles from './defaultStyles';
+import ErrorContainer from './error-container';
+import styles from './default-styles';
 
 export default class TextInputComp extends Component {
   static propTypes = {

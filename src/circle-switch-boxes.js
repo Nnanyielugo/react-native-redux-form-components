@@ -43,7 +43,8 @@ class CircleCheckArray extends Component {
             <SwitchCircle
               plain
               onClick={() => this.toggleSwitchValue(specs)}
-              initial={value === specs} />
+              initial={value === specs}
+            />
             <View style={styles.item}>
               <Text>{data[index]}</Text>
             </View>
