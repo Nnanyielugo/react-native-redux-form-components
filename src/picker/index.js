@@ -11,7 +11,8 @@ import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Radio from '../radio';
 import {
-  updateList, getSelectedFromName, uncheckonUnmount, updateListOnMount,
+  updateList, getSelectedFromName, uncheckonUnmount,
+  updateListOnMount, defaultPickerList,
 } from './helpers';
 import styles from './styles';
 import Modal from '../modal';
@@ -48,13 +49,14 @@ class Picker extends Component {
       checked: true,
     },
     selected: null,
-    list: [],
+    list: defaultPickerList,
     radioColor: undefined,
     colorBorderOnSelect: false,
     selectedBorderColor: undefined,
     type: 'Type',
     useListLabel: true,
     pickerLabelStyle: styles.pickerLabel,
+    withReduxForm: true,
   }
 
   state = {
@@ -188,7 +190,7 @@ class Picker extends Component {
      * @property {useListLabel} bool: Display a label on picker even when nothing is selected (default list name will be used)
      * @property {plain} bool: displays a label above picker. Defaults to undefined
      * @property {pickerLabelStyle} object: style for picker label
-
+     * @property {topOffset} number: absolute margin from top for modal
      */
     const {
       colorBorderOnSelect, selectedBorderColor,

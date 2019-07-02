@@ -5,7 +5,7 @@
  * @returns {array}
  *
  * sets the check value of the item that matched the id param to true
- * unchecks all other items to remove possible previously selected item(s),
+ * looks for, and unchecks previously selected item,
  * returns the updated list
  */
 export function updateList(_list, id) {
@@ -15,21 +15,15 @@ export function updateList(_list, id) {
   }
   const value = list.find(item => item.id === id);
   // eslint-disable-next-line eqeqeq
-  if (value.checked != undefined && value.checked === false) {
+  if (!value.checked) {
     value.checked = true;
   }
 
   const prevSelectedIndex = _list.findIndex(item => item.checked);
   if (prevSelectedIndex !== -1) {
-    const previous = { ...list[prevSelectedIndex] };
+    const previous = list[prevSelectedIndex];
     previous.checked = false;
   }
-
-  // list.map((item) => {
-  //   if (item.id !== id) {
-  //     item.checked = false; // eslint-disable-line no-param-reassign
-  //   }
-  // });
   return list;
 }
 
@@ -49,30 +43,6 @@ export function updateListOnMount(_list, name, useValue = false) {
     if (checkedFromList) checkedFromList.checked = true;
   }
   return list;
-
-  // if (useValue) {
-  //   value = _list.find(item => item.value === name);
-  //   if (value) {
-  //     list = _list.map((item) => {
-  //       if (item.value === value.value) {
-  //         item.checked = true; // eslint-disable-line no-param-reassign
-  //       }
-  //       return item;
-  //     });
-  //     return list;
-  //   }
-  // }
-  // value = _list.find(item => item.name === name);
-  // if (value) {
-  //   list = _list.map((item) => {
-  //     if (item.name === value.name) {
-  //       item.checked = true; // eslint-disable-line no-param-reassign
-  //     }
-  //     return item;
-  //   });
-  //   return list;
-  // }
-  // return list;
 }
 
 export function getSelectedFromName(list = [], name, useValue) {
@@ -84,3 +54,36 @@ export function uncheckonUnmount(list = []) {
     item.checked = false; // eslint-disable-line no-param-reassign
   });
 }
+
+export const defaultPickerList = [
+  {
+    id: 1,
+    name: 'Item One',
+    checked: false,
+  },
+  {
+    id: 2,
+    name: 'Item Two',
+    checked: false,
+  },
+  {
+    id: 3,
+    name: 'Item Three',
+    checked: false,
+  },
+  {
+    id: 4,
+    name: 'Item Four',
+    checked: false,
+  },
+  {
+    id: 5,
+    name: 'Item Five',
+    checked: false,
+  },
+  {
+    id: 6,
+    name: 'Item Six',
+    checked: false,
+  },
+];
