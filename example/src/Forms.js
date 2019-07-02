@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import { View, ScrollView, StyleSheet } from 'react-native';
-import { connect } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import {
   textInput, picker,
@@ -14,6 +13,7 @@ class Forms extends Component {
           name="Text"
           component={textInput}
           placeholder="Enter text"
+          useDefaultStyle
         />
 
         <Field
@@ -21,6 +21,12 @@ class Forms extends Component {
           component={textInput}
           placeholder="Enter text 2"
           useFloatingLabel
+        />
+
+        <Field
+          name="Picker"
+          type="Example Picker"
+          component={picker}
         />
       </ScrollView>
     );
