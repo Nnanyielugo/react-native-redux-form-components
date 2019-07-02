@@ -72,7 +72,7 @@ export default class TextInputComp extends Component {
     const {
       input, meta, useFloatingLabel, placeholder, standInPlaceHolder, inlineError,
       input: {
-        value, onChange,
+        value, onChange, onBlur, onFocus,
       },
       meta: {
         touched, invalid, error, active,
@@ -100,12 +100,27 @@ export default class TextInputComp extends Component {
     return (
       <Fragment>
         {!useFloatingLabel && (
-          <Plain
-            input={input}
-            meta={meta}
-            placeholder={placeholder}
-            {...props}
-          />
+          <View style={styles.container}>
+            <TextInput
+              style={[
+                useDefaultStyle && styles.input,
+                { marginTop: Platform.OS === 'ios' ? 10 : 5 },
+                (meta && invalid && touched) || (meta && touched && error)
+                  ? styles.inputErrorStyle
+                  : null,
+                meta && active
+                  ? styles.activeInputStyle
+                  : null,
+              ]}
+              {...props}
+              placeholder={placeholder}
+              value={input && value && value.toString()}
+              onBlur={input && onBlur}
+              onChangeText={input && onChange}
+              onFocus={input && onFocus}
+              underlineColorAndroid="transparent"
+            />
+          </View>
         )}
 
         {useFloatingLabel && (
@@ -121,7 +136,6 @@ export default class TextInputComp extends Component {
                 meta && active
                   ? styles.activeInputStyle
                   : null,
-
               ]}
               {...props}
               placeholder={this.state.isFocused && standInPlaceHolder ? standInPlaceHolder : ''}
