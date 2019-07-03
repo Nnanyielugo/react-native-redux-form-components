@@ -2,16 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View, Text, StyleSheet } from 'react-native';
 
-import SwitchCircle from '~/src/components/formComponents/switch-circle';
-
-// const checkInitial = (fields, datum) => {
-//   let initializeWithValue = false;
-//   const valuesInState = fields && fields.getAll();
-//   valuesInState && valuesInState.map((item) => {
-//     if (item === datum) initializeWithValue = true;
-//   });
-//   return initializeWithValue;
-// };
+import SwitchCircle from './switch-circle';
 
 class CircleCheckArray extends Component {
   static propTypes = {
@@ -21,6 +12,11 @@ class CircleCheckArray extends Component {
       onChange: PropTypes.func,
       value: PropTypes.string,
     }),
+  }
+
+  static defaultProps = {
+    data: ['Data 1', 'Data 2'],
+    label: 'Data Label',
   }
 
   toggleSwitchValue = (value) => {
@@ -73,3 +69,4 @@ const styles = StyleSheet.create({
 });
 
 export default CircleCheckArray;
+export { SwitchCircle };

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { View, TouchableOpacity } from 'react-native';
 import Icon from 'react-native-vector-icons/Ionicons';
 
-class Switch extends Component {
+class SwitchCircle extends Component {
   static propTypes = {
     size: PropTypes.number,
     disabled: PropTypes.bool,
@@ -11,7 +11,6 @@ class Switch extends Component {
     input: PropTypes.object,
     initial: PropTypes.bool,
     onClick: PropTypes.func,
-    plain: PropTypes.bool,
     toggle: PropTypes.bool,
   }
 
@@ -22,30 +21,45 @@ class Switch extends Component {
   }
 
   state = {
-    marked: this.props.initial,
+    marked: false,
   }
 
+  componentDidMount() {
+    const { input, initial } = this.props;
+    this.isReduxForm = !!input;
+    this.setState({
+      marked: this.isReduxForm ? input.value : initial,
+    });
+  }
+
+  /* eslint-disable no-lonely-if, react/no-did-update-set-state */
   componentDidUpdate(prevProps) {
-    const { initial } = this.props;
-    if (prevProps.initial !== initial) {
-      // eslint-disable-next-line react/no-did-update-set-state
-      this.setState({ marked: initial });
+    const { input, initial } = this.props;
+    if (this.isReduxForm) {
+      if (prevProps.input.value !== input.value) {
+        this.setState({ marked: input.value });
+      }
+    } else {
+      if (prevProps.initial !== initial) {
+        this.setState({ marked: initial });
+      }
     }
   }
+  /* eslint-enable no-lonely-if react/no-did-update-set-state */
 
   changeMarked = () => {
-    const { onClick, plain, toggle } = this.props;
+    const { onClick, toggle } = this.props;
     if (toggle) {
       this.setState(prevState => ({
         ...prevState,
         marked: !prevState.marked,
       }));
     }
-    if (plain) {
+    if (this.isReduxForm) {
+      const { input: { onChange, value } } = this.props;
+      onChange(!value);
+    } else if (typeof onClick === 'function') {
       onClick();
-    } else {
-      const { input: { onChange, checked } } = this.props;
-      onChange(!checked);
     }
   }
 
@@ -66,4 +80,4 @@ class Switch extends Component {
   }
 }
 
-export default Switch;
+export default SwitchCircle;
