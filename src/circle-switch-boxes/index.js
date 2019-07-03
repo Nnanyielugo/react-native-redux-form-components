@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { View, Text, StyleSheet } from 'react-native';
 
-import SwitchCircle from './switch-circle';
+import Radio from '../radio';
 
 class CircleCheckArray extends Component {
   static propTypes = {
@@ -36,7 +36,7 @@ class CircleCheckArray extends Component {
         <Text style={styles.label}>{label}</Text>
         {data.map((specs, index) => (
           <View key={index} style={{ flexDirection: 'row' }}>
-            <SwitchCircle
+            <Radio
               plain
               onClick={() => this.toggleSwitchValue(specs)}
               initial={value === specs}
@@ -69,4 +69,4 @@ const styles = StyleSheet.create({
 });
 
 export default CircleCheckArray;
-export { SwitchCircle };
+export { Radio };

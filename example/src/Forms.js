@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { View, ScrollView, StyleSheet } from 'react-native';
 import { Field, reduxForm } from 'redux-form';
 import {
-  TextInput, Picker, CircleSwitchBoxes, SwitchCircle,
+  TextInput, Picker, CircleSwitchBoxes, Radio,
 } from 'react-native-redux-form-components';
 // eslint-disable-next-line react/prefer-stateless-function
 class Forms extends Component {
@@ -42,7 +42,7 @@ class Forms extends Component {
 
         <Field
           name="switch-circle"
-          component={SwitchCircle}
+          component={Radio}
         />
       </ScrollView>
     );

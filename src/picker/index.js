@@ -9,7 +9,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/MaterialCommunityIcons';
 
-import Radio from '../radio';
+import Radio from './picker-radio';
 import {
   updateList, getSelectedFromName, uncheckonUnmount,
   updateListOnMount, defaultPickerList,
