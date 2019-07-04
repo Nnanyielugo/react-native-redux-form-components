@@ -11,7 +11,6 @@ class Radio extends Component {
     input: PropTypes.object,
     initial: PropTypes.bool,
     onClick: PropTypes.func,
-    toggle: PropTypes.bool,
   }
 
   static defaultProps = {
@@ -20,55 +19,21 @@ class Radio extends Component {
     color: 'grey',
   }
 
-  state = {
-    marked: false,
-  }
-
-  componentDidMount() {
-    const { input, initial } = this.props;
-    this.isReduxForm = !!input;
-    this.setState({
-      marked: this.isReduxForm ? input.value : initial,
-    });
-  }
-
-  /* eslint-disable no-lonely-if, react/no-did-update-set-state */
-  componentDidUpdate(prevProps) {
-    const { input, initial } = this.props;
-    if (this.isReduxForm) {
-      if (prevProps.input.value !== input.value) {
-        this.setState({ marked: input.value });
-      }
-    } else {
-      if (prevProps.initial !== initial) {
-        this.setState({ marked: initial });
-      }
-    }
-  }
-  /* eslint-enable no-lonely-if react/no-did-update-set-state */
-
   changeMarked = () => {
-    const { onClick, toggle } = this.props;
-    const { marked } = this.state;
-    if (toggle) {
-      this.setState(prevState => ({
-        ...prevState,
-        marked: !prevState.marked,
-      }));
-    }
+    const { onClick } = this.props;
     if (this.isReduxForm) {
       const { input: { onChange, value } } = this.props;
       onChange(!value);
     } else if (typeof onClick === 'function') {
       onClick();
     }
-
-    this.setState({ marked: !marked });
   }
 
   render() {
-    const { size, color, disabled } = this.props;
-    const { marked } = this.state;
+    const {
+      size, color, disabled, initial, input,
+    } = this.props;
+    const marked = this.isReduxForm ? input.value : initial;
     return (
       <TouchableOpacity onPress={this.changeMarked}>
         <View>
