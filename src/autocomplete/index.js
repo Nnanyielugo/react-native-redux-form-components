@@ -21,11 +21,9 @@ import ErrorContainer from '../error-container';
 
 class AutoComplete extends Component {
   static propTypes = {
-    iconLeft: PropTypes.bool,
     input: PropTypes.object,
-    onChange: PropTypes.func,
+    onChange: PropTypes.func, // eslint-disable-line react/no-unused-prop-types
     value: PropTypes.string,
-    text: PropTypes.string,
     iconInline: PropTypes.bool,
     useFloatingLabel: PropTypes.bool,
     label: PropTypes.string,
@@ -45,7 +43,6 @@ class AutoComplete extends Component {
   }
 
   static defaultProps = {
-    text: '',
     label: 'Search for a location',
     resultContainerStyle: {
       width: '100%',
@@ -126,7 +123,7 @@ class AutoComplete extends Component {
       }));
     }
     if (!googleMapsKey) {
-      alert('You need to provide a google maps key for this component to work');
+      alert('You need to provide a google maps api key for this component to work');
     }
   }
 
