@@ -4,7 +4,7 @@ import {
   View, Animated, TextInput, Platform,
 } from 'react-native';
 
-import ErrorContainer from './error-container';
+import ErrorContainer from '../error-container';
 import styles from './default-styles';
 
 export default class TextInputComp extends Component {
