@@ -3,12 +3,21 @@ import { View, ScrollView, StyleSheet } from 'react-native';
 import { Field, reduxForm } from 'redux-form';
 import {
   TextInput, Picker, CircleSwitchBoxes, Radio,
+  textInput, Autocomplete,
 } from 'react-native-redux-form-components';
+
 // eslint-disable-next-line react/prefer-stateless-function
 class Forms extends Component {
   render() {
     return (
       <ScrollView contentContainerStyle={styles.container}>
+        <Field
+          name="autocomplete"
+          component={Autocomplete}
+          googleMapsKey=""
+          useAbsoluteDropdown
+        />
+
         <Field
           name="Text"
           component={TextInput}
@@ -18,7 +27,7 @@ class Forms extends Component {
 
         <Field
           name="Text 2"
-          component={TextInput}
+          component={textInput}
           placeholder="Enter text 2"
           useFloatingLabel
         />
