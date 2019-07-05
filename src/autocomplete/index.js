@@ -40,6 +40,7 @@ class AutoComplete extends Component {
       PropTypes.string,
     ),
     useAbsoluteDropdown: PropTypes.bool,
+    mapIconColor: PropTypes.string,
   }
 
   static defaultProps = {
@@ -64,6 +65,7 @@ class AutoComplete extends Component {
     },
     googleMapsKey: '',
     useAbsoluteDropdown: false,
+    mapIconColor: '#f58220',
   }
 
   makeRequest = debounce((val) => {
@@ -283,7 +285,8 @@ class AutoComplete extends Component {
 
   renderInputView = () => {
     const {
-      iconInline, useFloatingLabel, meta, label, includeAnywhere,
+      iconInline, useFloatingLabel, label,
+      includeAnywhere, mapIconColor,
     } = this.props;
     const { text, error } = this.state;
 
@@ -316,7 +319,7 @@ class AutoComplete extends Component {
           error && styles.errorView,
         ]}
         >
-          <Icon name="map-marker" style={{ marginTop: 10, marginBottom: 5 }} size={20} color="#f58220" />
+          <Icon name="map-marker" style={{ marginTop: 10, marginBottom: 5 }} size={20} color={mapIconColor} />
           <TextInput
             placeholder={label}
             value={text}
@@ -335,7 +338,7 @@ class AutoComplete extends Component {
         error && styles.errorView,
       ]}
       >
-        <Icon name="map-marker" style={{ marginTop: 8 }} size={20} color="#f58220" />
+        <Icon name="map-marker" style={{ marginTop: 8 }} size={20} color={mapIconColor} />
         <View style={[styles.input, { marginTop: 8 }]}>
           <Animated.Text style={[labelStyle, error && styles.error]}>{label}</Animated.Text>
           <TextInput

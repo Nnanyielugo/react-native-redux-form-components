@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { View, ScrollView, StyleSheet } from 'react-native';
-import { Field, reduxForm } from 'redux-form';
+import { Field, FieldArray, reduxForm } from 'redux-form';
 import {
   TextInput, Picker, CircleSwitchBoxes, Radio,
-  textInput, Autocomplete,
+  textInput, Autocomplete, CheckboxArray,
 } from 'react-native-redux-form-components';
 
 // eslint-disable-next-line react/prefer-stateless-function
@@ -50,8 +50,13 @@ class Forms extends Component {
         />
 
         <Field
-          name="switch-circle"
+          name="radio"
           component={Radio}
+        />
+
+        <FieldArray
+          name="check-box-array"
+          component={CheckboxArray}
         />
       </ScrollView>
     );

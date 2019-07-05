@@ -12,7 +12,8 @@
   },
   "keywords": [
     "react-native",
-    "redux-form"
+    "redux-form",
+    "forms"
   ],
   "author": "Nnanyielugo",
   "license": "ISC",
