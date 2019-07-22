@@ -4,6 +4,7 @@ import { Field, FieldArray, reduxForm } from 'redux-form';
 import {
   TextInput, Picker, CircleSwitchBoxes, Radio,
   textInput, Autocomplete, CheckboxArray,
+  CircleCheckboxGroup,
 } from 'react-native-redux-form-components';
 
 // eslint-disable-next-line react/prefer-stateless-function
@@ -57,6 +58,11 @@ class Forms extends Component {
         <FieldArray
           name="check-box-array"
           component={CheckboxArray}
+        />
+
+        <Field
+          name="circle-checkbox-group"
+          component={CircleCheckboxGroup}
         />
       </ScrollView>
     );

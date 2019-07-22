@@ -12,11 +12,13 @@ class CircleCheckArray extends Component {
       onChange: PropTypes.func,
       value: PropTypes.string,
     }),
+    withDataLabel: PropTypes.bool,
   }
 
   static defaultProps = {
     data: ['Data 1', 'Data 2'],
     label: 'Data Label',
+    withDataLabel: true,
   }
 
   toggleSwitchValue = (value) => {
@@ -30,10 +32,13 @@ class CircleCheckArray extends Component {
   }
 
   render() {
-    const { data, label, input: { value } } = this.props;
+    const {
+      data, label, input: { value },
+      withDataLabel,
+    } = this.props;
     return (
-      <View style={styles.container}>
-        <Text style={styles.label}>{label}</Text>
+      <View style={[styles.container, withDataLabel && { flexDirection: 'row' }]}>
+        {withDataLabel && <Text style={styles.label}>{label}</Text>}
         {data.map((specs, index) => (
           <View key={index} style={{ flexDirection: 'row' }}>
             <Radio
@@ -53,7 +58,6 @@ class CircleCheckArray extends Component {
 const styles = StyleSheet.create({
   container: {
     marginVertical: 15,
-    flexDirection: 'row',
   },
   item: {
     marginTop: 5,
