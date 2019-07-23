@@ -25,6 +25,30 @@ function findSelected(list) {
   return selected;
 }
 
+function extractSelectedWithValue(_list, itemValue) {
+  const list = JSON.parse(JSON.stringify(_list));
+  const index = list.findIndex(item => item.value === itemValue);
+  const selected = list[index];
+  const newSelected = {
+    ...selected,
+    checked: true,
+  };
+  list.splice(index, 1, newSelected);
+  return list;
+}
+
+function extractSelectedWithName(_list, itemName) {
+  const list = JSON.parse(JSON.stringify(_list));
+  const index = list.findIndex(item => item.name === itemName);
+  const selected = list[index];
+  const newSelected = {
+    ...selected,
+    checked: true,
+  };
+  list.splice(index, 1, newSelected);
+  return list;
+}
+
 class CircleCheckboxGroup extends Component {
   static propTypes = {
     size: PropTypes.number,
@@ -70,12 +94,24 @@ class CircleCheckboxGroup extends Component {
   }
 
   componentDidMount() {
-    const { input: { onChange }, items, useValue } = this.props;
+    const { input: { onChange, value }, items, useValue } = this.props;
     if (findSelected(items)) {
       if (useValue) {
         onChange(findSelected(items).value);
       } else {
         onChange(findSelected(items).name);
+      }
+    }
+
+    if (value) {
+      if (useValue) {
+        this.setState({
+          items: extractSelectedWithValue(items, value),
+        });
+      } else {
+        this.setState({
+          items: extractSelectedWithName(items, value),
+        });
       }
     }
   }
