@@ -1,6 +1,6 @@
 {
   "name": "react-native-redux-form-components",
-  "version": "0.0.6",
+  "version": "0.0.7",
   "description": "React Native form components compatible with redux-form",
   "main": "index.js",
   "scripts": {
